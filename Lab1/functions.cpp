@@ -1,5 +1,7 @@
 #include "functions.h"
 
+const double pi = 3.14159265359;
+
 double abs(double x) {
 	return (x < 0) ? -x : x;
 }
@@ -35,9 +37,19 @@ double ln(double z, double accuracy) {
 
 double cos(double x, double accuracy) {
 
+
+	if (x > 2 * pi) {
+		for (; x > 2 * pi; x -= 2 * pi);
+	}
+	else if (x < 2 * pi) {
+		for (; x < 2 * pi; x += 2 * pi);
+	}
+
+
+
 	double c = 1, res = 1, sqx = x * x;
 
-	for (int i = 1; abs(c) >= accuracy; i++) {
+	for (int i = 1; abs(c) > accuracy; i++) {
 		c *= -1 * sqx / (2 * i) / (2 * i - 1);
 		res += c;
 	}

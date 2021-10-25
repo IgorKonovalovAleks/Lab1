@@ -15,7 +15,7 @@ int main() {
 	else if (f == 3) printf("%lf", cos(x, eps));
 	else if (f == 4) printf("%lf", sh(x, eps));
 	else if (f == 5) printf("%lf", arctg(x, eps));
-
+	else printf("wrong number");
 
 	return 0;
 }
